@@ -1,13 +1,16 @@
 {
   "name": "Nuxt.js Development",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
-  "workspaceFolder": "/workspace",
-  "updateRemoteUserUID": true,
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "node",
   
   // Set container specific settings
   "containerEnv": {
-    "SHELL": "/bin/bash"
+    "SHELL": "/bin/bash",
+    "NODE_ENV": "development"
   },
 
   // Forward Nuxt.js port
@@ -47,9 +50,9 @@
     }
   },
 
-  // Use 'postCreateCommand' to run commands after the container is created
-  "postCreateCommand": "npm install && npm run postinstall",
+  // Use 'onCreateCommand' to run commands after the container is created
+  "onCreateCommand": "npm install && npm run postinstall",
 
-  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "node"
+  // Use 'postStartCommand' to run commands after the container is started
+  "postStartCommand": "echo 'Container started successfully!'"
 }

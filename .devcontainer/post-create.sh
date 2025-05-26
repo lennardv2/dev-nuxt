@@ -5,6 +5,17 @@ set -e
 
 echo "🚀 Setting up Nuxt.js development environment..."
 
+# Determine the workspace directory
+WORKSPACE_DIR="${WORKSPACE_DIR:-/workspaces}"
+if [ -d "${WORKSPACE_DIR}" ]; then
+  cd "${WORKSPACE_DIR}"
+  if [ -d "${WORKSPACE_DIR}/${localWorkspaceFolderBasename:-$(basename $(pwd))}" ]; then
+    cd "${WORKSPACE_DIR}/${localWorkspaceFolderBasename:-$(basename $(pwd))}"
+  fi
+fi
+
+echo "📂 Current directory: $(pwd)"
+
 # Install dependencies
 echo "📦 Installing dependencies..."
 npm install

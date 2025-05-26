@@ -10,7 +10,7 @@ This directory contains configuration files for setting up a development contain
 - VS Code extensions for Vue.js/Nuxt.js development
 - Port forwarding for Nuxt.js development server
 
-## Usage
+## Usage with VS Code Dev Containers
 
 ### Prerequisites
 
@@ -26,7 +26,23 @@ This directory contains configuration files for setting up a development contain
 
 VS Code will build the container and open the project inside it. This may take a few minutes the first time.
 
-### Development Workflow
+## Usage with Envbuilder
+
+This devcontainer configuration is compatible with [coder/envbuilder](https://github.com/coder/envbuilder), which allows you to build development environments from a Dockerfile or devcontainer.json on Docker, Kubernetes, and OpenShift.
+
+To use this devcontainer with envbuilder:
+
+```bash
+docker run -it --rm \
+  -v /tmp/envbuilder:/workspaces \
+  -e ENVBUILDER_GIT_URL=<your-git-repo-url> \
+  -e ENVBUILDER_INIT_SCRIPT=bash \
+  ghcr.io/coder/envbuilder
+```
+
+Replace `<your-git-repo-url>` with the URL of your Git repository.
+
+## Development Workflow
 
 Once the container is running:
 
@@ -40,16 +56,16 @@ To start the development server:
 npm run dev
 ```
 
-### Customization
+## Customization
 
 - Modify `devcontainer.json` to change VS Code settings or extensions
 - Modify `Dockerfile` to change the container setup
-- Modify `docker-compose.yml` to add additional services (e.g., databases)
 
-### Troubleshooting
+## Troubleshooting
 
 If you encounter any issues with the devcontainer setup:
 
 1. Check that Docker is running
 2. Try rebuilding the container (Dev Containers: Rebuild Container)
 3. Check the Docker logs for any error messages
+4. If using envbuilder, check the envbuilder logs for any error messages

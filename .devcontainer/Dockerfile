@@ -26,7 +26,10 @@ RUN groupmod --gid $USER_GID $USERNAME \
 RUN npm install -g pnpm@latest npm@latest nuxi@latest
 
 # Set the default shell to bash rather than sh
-ENV SHELL /bin/bash
+ENV SHELL=/bin/bash
 
 # Set up Node.js environment
 ENV NODE_ENV=development
+
+# Create workspace directory with correct permissions
+RUN mkdir -p /workspaces && chown -R $USERNAME:$USERNAME /workspaces
