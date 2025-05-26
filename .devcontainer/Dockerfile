@@ -23,7 +23,10 @@ RUN groupmod --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # Install global npm packages
-RUN npm install -g pnpm@latest npm@latest
+RUN npm install -g pnpm@latest npm@latest nuxi@latest
 
 # Set the default shell to bash rather than sh
 ENV SHELL /bin/bash
+
+# Set up Node.js environment
+ENV NODE_ENV=development

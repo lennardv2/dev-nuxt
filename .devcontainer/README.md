@@ -6,7 +6,7 @@ This directory contains configuration files for setting up a development contain
 
 - Node.js 20 (Bullseye)
 - Git, curl, wget, and other essential tools
-- Global npm packages: pnpm, npm (latest versions)
+- Global npm packages: pnpm, npm, nuxi (latest versions)
 - VS Code extensions for Vue.js/Nuxt.js development
 - Port forwarding for Nuxt.js development server
 
@@ -16,7 +16,7 @@ This directory contains configuration files for setting up a development contain
 
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ### Opening the Project in a Container
 
@@ -34,8 +34,22 @@ Once the container is running:
 - All VS Code extensions and settings are pre-configured
 - Changes to the code will be reflected immediately due to the volume mount
 
+To start the development server:
+
+```bash
+npm run dev
+```
+
 ### Customization
 
 - Modify `devcontainer.json` to change VS Code settings or extensions
 - Modify `Dockerfile` to change the container setup
 - Modify `docker-compose.yml` to add additional services (e.g., databases)
+
+### Troubleshooting
+
+If you encounter any issues with the devcontainer setup:
+
+1. Check that Docker is running
+2. Try rebuilding the container (Dev Containers: Rebuild Container)
+3. Check the Docker logs for any error messages

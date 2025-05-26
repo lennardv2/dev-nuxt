@@ -23,5 +23,5 @@ logs
 .env.*
 !.env.example
 
-# Docker files
-.devcontainer
+# Keep Docker files for devcontainer setup
+# .devcontainer
