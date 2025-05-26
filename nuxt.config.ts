@@ -3,9 +3,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
-    runtimeConfig: {
+  runtimeConfig: {
     public: {
-      wsUrl: 'wss://4000--main--test--lennardv2.code.spring.nl/ws'
+      wsUrl: 'wss://4000--main--dev-nuxt--lennard.code.spring.nl/ws'
     }
   },
 
@@ -13,8 +13,6 @@ export default defineNuxtConfig({
     server: {
       allowedHosts: [
         '3000--main--dev-nuxt--lennard.code.spring.nl',
-        '4000--main--dev-nuxt--lennard.code.spring.nl',
-        // You can add more hosts here if needed
       ]
     }
   },
